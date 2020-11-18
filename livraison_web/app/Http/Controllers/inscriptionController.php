@@ -44,13 +44,9 @@ class inscriptionController extends Controller
         $e->num= $request->num;
         $e->nb_ajout= $request->nb_ajout;
         $e->id_zone= $request->id_zone; 
-
-        //$e['created_at'] = Carbon::now()->toDateTimeString();
-        //$e['updated_at'] = Carbon::now()->toDateTimeString();
-        // save 
         $e->save();
         // retourner vers la page home 
-        return view('pages.welcome');
+        return view('dashboard');
     }
 
     /**
