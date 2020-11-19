@@ -16,7 +16,7 @@
                         {{ __('Accueil') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ 'inscription' }}" :active="request()->routeIs('inscription')">
+                    <x-jet-nav-link href="{{ route('ajouter.livreur') }}" :active="request()->routeIs('inscription')">
                         {{ __('Ajouter Livreur') }}
                     </x-jet-nav-link>
 
@@ -33,21 +33,25 @@
                             </x-slot>
                             <x-slot name="content">
                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                    <x-jet-dropdown-link href="{{ 'Nom' }}">
+                                    <x-jet-dropdown-link href="{{ route('chercher.livreur.nom') }}">
                                         {{ __('Nom') }}
                                         
                                     </x-jet-dropdown-link>
 
-                                    <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                                    <x-jet-dropdown-link href="{{ route('chercher.livreur.prenom') }}">
                                         {{ __('Prénom') }}
                                     </x-jet-dropdown-link>
 
-                                    <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                                    <x-jet-dropdown-link href="{{ route('chercher.livreur.email' }}">
                                         {{ __('e_mail') }}
                                     </x-jet-dropdown-link>
 
-                                    <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                                    <x-jet-dropdown-link href="{{ route('chercher.livreur.numero' }}">
                                         {{ __('Numéro') }}
+                                    </x-jet-dropdown-link>
+
+                                    <x-jet-dropdown-link href="{{ route('chercher.livreur.zone' }}">
+                                        {{ __('Zone') }}
                                     </x-jet-dropdown-link>
                                 </div>
                             </x-slot>  

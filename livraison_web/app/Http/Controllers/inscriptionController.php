@@ -25,7 +25,7 @@ class inscriptionController extends Controller
      */
     public function create_livreur()
     {
-        return view('formulaire');
+        return view('livreur/formulaire_ajout');
     }
 
     /**
@@ -37,7 +37,6 @@ class inscriptionController extends Controller
     public function store_livreur(Request $request)
     {
         $e = new livreur();
-        $e->id_livreur= $request->get('id_livreur'); 
         $e->nom= $request->nom;
         $e->prénom= $request->prénom;
         $e->mail= $request->mail;
@@ -58,7 +57,7 @@ class inscriptionController extends Controller
      */
     public function show_livreur_nom()
     {
-        return view('chercher');
+        return view('livreur/chercher');
     }
 
     public function show_livreur_nom_choisi(Request $request)
@@ -67,7 +66,7 @@ class inscriptionController extends Controller
         $selct = DB::table ('livreurs')->where('nom', $nom)->get();  
         //->where ([['niveau', $varNiveau], ['grp', $varGrp]])
         //$data = DB::table('userquestion')->where('userEmail', '=', auth()->user()->email)->get();
-        return view('affichage')->with('l', $selct); 
+        return view('livreur/affichage')->with('l', $selct); 
     }
 
     public function show_livreur_prenom($id)

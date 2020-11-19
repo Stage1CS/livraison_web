@@ -10,10 +10,10 @@
         <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
         <div class="content">
             <h1>Ajouter un nouveau Livreur</h1>
-            <form action=" {{'inscription'}} " method="post">
+            <form action=" {{ route('ajouter.livreur') }} " method="post">
                 {{ csrf_field() }}
 
-                <input type="number" name="id_livreur" placeholder="id"> <br></br>
+                
                 <input type="text" name="nom" placeholder="nom"> <br></br>
                 <input type="text" name="prénom" placeholder="prenom"> <br></br>
                 <input type="email" name="email" placeholder="email" id="email"> <br></br>
