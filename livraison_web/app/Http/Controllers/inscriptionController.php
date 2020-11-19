@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\livreur;
+use DB;
 
 class inscriptionController extends Controller
 {
@@ -36,14 +37,14 @@ class inscriptionController extends Controller
     public function store_livreur(Request $request)
     {
         $e = new livreur();
-        $e->id_livreur= $request->get('id_livreur');  // i must change it and put an auto incremebter 
+        $e->id_livreur= $request->get('id_livreur'); 
         $e->nom= $request->nom;
         $e->prénom= $request->prénom;
         $e->mail= $request->mail;
         //$e->mail= $request->input( 'mail' );
         $e->num= $request->num;
-        $e->nb_ajout= $request->nb_ajout;
-        $e->id_zone= $request->id_zone; 
+        //$e->nb_ajout= $request->nb_ajout;
+        //$e->id_zone= $request->id_zone; 
         $e->save();
         // retourner vers la page home 
         return view('dashboard');
@@ -55,7 +56,31 @@ class inscriptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show_livreur_nom()
+    {
+        return view('chercher');
+    }
+
+    public function show_livreur_nom_choisi(Request $request)
+    {
+        $nom = $request->get('nom');
+        $selct = DB::table ('livreurs')->where('nom', $nom)->get();  
+        //->where ([['niveau', $varNiveau], ['grp', $varGrp]])
+        //$data = DB::table('userquestion')->where('userEmail', '=', auth()->user()->email)->get();
+        return view('affichage')->with('l', $selct); 
+    }
+
+    public function show_livreur_prenom($id)
+    {
+        //
+    }
+
+    public function show_livreur_mail($id)
+    {
+        //
+    }
+
+    public function show_livreur_numero($id)
     {
         //
     }
@@ -66,7 +91,7 @@ class inscriptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit_livreur($id)
     {
         //
     }
@@ -78,7 +103,7 @@ class inscriptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update_livreur(Request $request, $id)
     {
         //
     }
@@ -89,9 +114,10 @@ class inscriptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy_livreur($id)
     {
-        //
+        DB::delete('delete from livreurs where id_livreur = ?',[$id]);
+        return redirect('dashboard');
     }
 }
 

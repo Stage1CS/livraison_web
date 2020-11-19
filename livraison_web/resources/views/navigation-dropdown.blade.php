@@ -19,9 +19,55 @@
                     <x-jet-nav-link href="{{ 'inscription' }}" :active="request()->routeIs('inscription')">
                         {{ __('Ajouter Livreur') }}
                     </x-jet-nav-link>
-                    
+
+
+                    <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <x-jet-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">                       
+                                    {{ __('Rechercher Livreur') }}
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </x-slot>
+                            <x-slot name="content">
+                                <div class="block px-4 py-2 text-xs text-gray-400">
+                                    <x-jet-dropdown-link href="{{ 'Nom' }}">
+                                        {{ __('Nom') }}
+                                        
+                                    </x-jet-dropdown-link>
+
+                                    <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                                        {{ __('Prénom') }}
+                                    </x-jet-dropdown-link>
+
+                                    <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                                        {{ __('e_mail') }}
+                                    </x-jet-dropdown-link>
+
+                                    <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                                        {{ __('Numéro') }}
+                                    </x-jet-dropdown-link>
+                                </div>
+                            </x-slot>  
+                        </x-jet-dropdown>
+                    </div>
+                    <x-jet-nav-link href="{{ 'inscription' }}" :active="request()->routeIs('inscription')">
+                        {{ __('Ajouter Point de vente') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ 'inscription' }}" :active="request()->routeIs('inscription')">
+                        {{ __('Rechercher point de vente') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ 'inscription' }}" :active="request()->routeIs('inscription')">
+                        {{ __('Exporter données') }}
+                    </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ 'inscription' }}" :active="request()->routeIs('inscription')">
+                        {{ __('Importer données') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
+            
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">

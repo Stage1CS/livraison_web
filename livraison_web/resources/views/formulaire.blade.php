@@ -16,10 +16,8 @@
                 <input type="number" name="id_livreur" placeholder="id"> <br></br>
                 <input type="text" name="nom" placeholder="nom"> <br></br>
                 <input type="text" name="prénom" placeholder="prenom"> <br></br>
-                <input type="text" name="email" placeholder="email" id="email"> <br></br>
+                <input type="email" name="email" placeholder="email" id="email"> <br></br>
                 <input type="number" name="num" placeholder="numero"> <br></br>
-                <input type="number" name="nb_ajout" placeholder="nb_ajout"> <br></br>
-                <input type="number" name="id_zone" placeholder="nb_zone"> <br></br>
                 <input type="submit" value="inscrire">
             </form>
         </div>
@@ -27,3 +25,8 @@
     </div>
 </div>
 </x-app-layout>
+
+
+
+            
+

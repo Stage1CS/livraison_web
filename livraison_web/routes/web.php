@@ -27,7 +27,9 @@ use App\Http\Controllers\inscriptionController;
 
 Route::get('inscription', [inscriptionController::class, 'create_livreur']);
 Route::post('inscription', [inscriptionController::class, 'store_livreur']);
-
+Route::get('Nom', [inscriptionController::class, 'show_livreur_nom']);
+Route::get('chercher', [inscriptionController::class, 'show_livreur_nom_choisi']);
+Route::get('supprimer/{id}', [inscriptionController::class, 'destroy_livreur']);
 
 
 
