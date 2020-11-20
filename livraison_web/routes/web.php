@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\inscriptionController;
+use App\Http\Controllers\ExportImportController;
 
 
 /*
@@ -22,9 +24,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-
-use App\Http\Controllers\inscriptionController;
-
 Route::get('inscription', [inscriptionController::class, 'create_livreur'])->name('ajouter.livreur');
 Route::post('inscription', [inscriptionController::class, 'store_livreur'])->name('ajouter.livreur');
 
@@ -41,6 +40,10 @@ Route::get('chercherNum', [inscriptionController::class, 'show_livreur_numero_ch
 Route::get('chercherZone', [inscriptionController::class, 'show_livreur_zone_choisi'])->name('afficher.livreur.chercherZone');
 
 Route::get('supprimer/{id}', [inscriptionController::class, 'destroy_livreur'])->name('supprimer.livreur');
+
+Route::get('view', [ExportImportController::class, 'importExportView']);
+Route::get('export', [ExportImportController::class, 'export'])->name('export');
+Route::get('import', [ExportImportController::class, 'import'])->name('import');
 
 
 
