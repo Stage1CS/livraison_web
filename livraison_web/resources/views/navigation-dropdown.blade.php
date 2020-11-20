@@ -42,15 +42,15 @@
                                         {{ __('Prénom') }}
                                     </x-jet-dropdown-link>
 
-                                    <x-jet-dropdown-link href="{{ route('chercher.livreur.email' }}">
+                                    <x-jet-dropdown-link href="{{ route('chercher.livreur.email') }}">
                                         {{ __('e_mail') }}
                                     </x-jet-dropdown-link>
 
-                                    <x-jet-dropdown-link href="{{ route('chercher.livreur.numero' }}">
+                                    <x-jet-dropdown-link href="{{ route('chercher.livreur.numero') }}">
                                         {{ __('Numéro') }}
                                     </x-jet-dropdown-link>
 
-                                    <x-jet-dropdown-link href="{{ route('chercher.livreur.zone' }}">
+                                    <x-jet-dropdown-link href="{{ route('chercher.livreur.zone') }}">
                                         {{ __('Zone') }}
                                     </x-jet-dropdown-link>
                                 </div>

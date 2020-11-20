@@ -12,12 +12,14 @@
             <h1>Ajouter un nouveau Livreur</h1>
             <form action=" {{ route('ajouter.livreur') }} " method="post">
                 {{ csrf_field() }}
-
-                
                 <input type="text" name="nom" placeholder="nom"> <br></br>
                 <input type="text" name="prénom" placeholder="prenom"> <br></br>
                 <input type="email" name="email" placeholder="email" id="email"> <br></br>
                 <input type="number" name="num" placeholder="numero"> <br></br>
+                <select name="zone" id="zone"> 
+                    <option >bab_zouar</option>
+                    <option >oued_smar</option>
+                </select> <br></br>
                 <input type="submit" value="inscrire">
             </form>
         </div>

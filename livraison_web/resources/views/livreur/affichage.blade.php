@@ -1,7 +1,7 @@
 <x-app-layout>
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ __('Chercher livreur par nom ') }}
+        {{ __('Chercher livreur ') }}
     </h2>
 </x-slot>
 
@@ -32,8 +32,8 @@
             <td> {{$livreur -> prénom}} </td>
             <td> {{$livreur -> mail}} </td>
             <td> {{$livreur -> num}}</td>
-            <td> {{$livreur ->nb_ajout}} </td>
-            <td> {{$livreur -> id_zone}}</td>
+            <td> {{$livreur -> nb_ajout}} </td>
+            <td> {{ DB::table ('zone')->where('id_zone', $livreur->id_zone) -> first() -> nom_zone}}</td>
             <td> {{$livreur -> updated_at}}</td>
             <td> {{$livreur -> created_at}}</td>
             <td><a href = 'supprimer/{{ $livreur -> id_livreur }}'>Supprimer</a></td>

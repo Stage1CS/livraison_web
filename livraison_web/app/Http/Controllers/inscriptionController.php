@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\livreur;
+use App\Models\zone;
 use DB;
 
 class inscriptionController extends Controller
@@ -37,13 +38,16 @@ class inscriptionController extends Controller
     public function store_livreur(Request $request)
     {
         $e = new livreur();
+        $select = new zone();
         $e->nom= $request->nom;
         $e->prénom= $request->prénom;
         $e->mail= $request->mail;
         //$e->mail= $request->input( 'mail' );
         $e->num= $request->num;
         //$e->nb_ajout= $request->nb_ajout;
-        //$e->id_zone= $request->id_zone; 
+        $select = DB::table ('zone')->where('nom_zone', $request->zone)->first();
+        $shit= $select->id_zone;
+        $e->id_zone= $shit;
         $e->save();
         // retourner vers la page home 
         return view('dashboard');
@@ -55,7 +59,7 @@ class inscriptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show_livreur_nom()
+    public function show_livreur()
     {
         return view('livreur/chercher');
     }
@@ -69,20 +73,44 @@ class inscriptionController extends Controller
         return view('livreur/affichage')->with('l', $selct); 
     }
 
-    public function show_livreur_prenom($id)
+    public function show_livreur_prenom_choisi(Request $request)
     {
-        //
+        $prenom = $request->get('prénom');
+        $selct = DB::table ('livreurs')->where('prénom', $prenom)->get();  
+        return view('livreur/affichage')->with('l', $selct); 
     }
 
-    public function show_livreur_mail($id)
+    public function show_livreur_email_choisi(Request $request)
     {
-        //
+        $mail = $request->get('mail');
+        $selct = DB::table ('livreurs')->where('mail', $mail)->get();  
+        return view('livreur/affichage')->with('l', $selct); 
     }
 
-    public function show_livreur_numero($id)
+    public function show_livreur_numero_choisi(Request $request)
     {
-        //
+        $num = $request->get('num');
+        $selct = DB::table ('livreurs')->where('num', $num)->get();  
+        return view('livreur/affichage')->with('l', $selct); 
     }
+
+    public function get_zones()
+    {
+        //recuperer les zones
+        //$zones = zone::all();
+        $zones = DB::table('zone')->get();
+        return view('livreur/zone')->with('z',$zone);
+    }
+
+    public function show_livreur_zone_choisi(Request $request)
+    {
+        $z = $request->get('zone');
+        //echo $z;
+        $select = DB::table ('zone')->where('nom_zone', $z)->first();
+        $selct = DB::table('livreurs')->where('id_zone', $select->id_zone)->get();  
+        return view('livreur/affichage')->with('l', $selct); 
+    }
+
 
     /**
      * Show the form for editing the specified resource.
