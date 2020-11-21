@@ -34,8 +34,7 @@
                             <x-slot name="content">
                                 <div class="block px-4 py-2 text-xs text-gray-400">
                                     <x-jet-dropdown-link href="{{ route('chercher.livreur.nom') }}">
-                                        {{ __('Nom') }}
-                                        
+                                        {{ __('Nom') }} 
                                     </x-jet-dropdown-link>
 
                                     <x-jet-dropdown-link href="{{ route('chercher.livreur.prenom') }}">
@@ -63,11 +62,8 @@
                     <x-jet-nav-link href="{{ 'inscription' }}" :active="request()->routeIs('inscription')">
                         {{ __('Rechercher point de vente') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ 'inscription' }}" :active="request()->routeIs('inscription')">
-                        {{ __('Exporter données') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ 'inscription' }}" :active="request()->routeIs('inscription')">
-                        {{ __('Importer données') }}
+                    <x-jet-nav-link href="{{ route('ExportImport.Livreurs') }}" :active="request()->routeIs('inscription')">
+                        {{ __('Exporter/Importer données') }}
                     </x-jet-nav-link>
                 </div>
             </div>

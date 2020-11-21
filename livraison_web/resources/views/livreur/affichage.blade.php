@@ -36,7 +36,10 @@
             <td> {{ DB::table ('zone')->where('id_zone', $livreur->id_zone) -> first() -> nom_zone}}</td>
             <td> {{$livreur -> updated_at}}</td>
             <td> {{$livreur -> created_at}}</td>
-            <td><a href = 'supprimer/{{ $livreur -> id_livreur }}'>Supprimer</a></td>
+            <td>
+                <a href = 'supprimer/{{ $livreur -> id_livreur }}'>Supprimer</a> <br>
+                <a href = 'edit/{{ $livreur -> id_livreur }}'>Mettre à jour</a><br>
+            </td>
         </tr>       
     @endforeach
 </body>      

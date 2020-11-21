@@ -20,7 +20,7 @@
                     <option >bab_zouar</option>
                     <option >oued_smar</option>
                 </select> <br></br>
-                <input type="submit" value="inscrire">
+                <button type="submit" value="inscrire"></button>
             </form>
         </div>
         </div>

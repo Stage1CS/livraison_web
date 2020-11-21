@@ -29,6 +29,15 @@ class ExportImportController extends Controller
     /**
     * @return \Illuminate\Support\Collection
     */
+    public function export_pdf() 
+    {
+        return Pdf::download(new livreurExport, 'livreurs.pdf');
+    }
+
+
+    /**
+    * @return \Illuminate\Support\Collection
+    */
     public function import() 
     {
         Excel::import(new livreurImport,request()->file('file'));

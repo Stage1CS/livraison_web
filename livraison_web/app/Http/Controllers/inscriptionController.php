@@ -105,7 +105,6 @@ class inscriptionController extends Controller
     public function show_livreur_zone_choisi(Request $request)
     {
         $z = $request->get('zone');
-        //echo $z;
         $select = DB::table ('zone')->where('nom_zone', $z)->first();
         $selct = DB::table('livreurs')->where('id_zone', $select->id_zone)->get();  
         return view('livreur/affichage')->with('l', $selct); 
@@ -120,7 +119,8 @@ class inscriptionController extends Controller
      */
     public function edit_livreur($id)
     {
-        //
+        $data= livreur::find($id);
+        return view('livreur/edit', ['data'=> $data]);
     }
 
     /**
@@ -130,9 +130,17 @@ class inscriptionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update_livreur(Request $request, $id)
+    public function update_livreur(Request $request)
     {
-        //
+        $data=livreur::find($request->livreur_id);
+        $data->nom=$request->nom;
+        $data->prénom=$request->prénom;
+        $data->mail=$request->mail;
+        $data->num=$request->num;
+        $zone= DB::table ('zone')->where('nom_zone', $request->zone)->first();
+        $data->id_zone=$zone->id_zone;
+        $data->save();
+        return redirect('dashboard');
     }
 
     /**

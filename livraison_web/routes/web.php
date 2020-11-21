@@ -40,8 +40,10 @@ Route::get('chercherNum', [inscriptionController::class, 'show_livreur_numero_ch
 Route::get('chercherZone', [inscriptionController::class, 'show_livreur_zone_choisi'])->name('afficher.livreur.chercherZone');
 
 Route::get('supprimer/{id}', [inscriptionController::class, 'destroy_livreur'])->name('supprimer.livreur');
+Route::get('edit/{id}', [inscriptionController::class, 'edit_livreur'])->name('edit.livreur');
+Route::post('update', [inscriptionController::class, 'update_livreur'])->name('update.livreur');
 
-Route::get('view', [ExportImportController::class, 'importExportView']);
+Route::get('view', [ExportImportController::class, 'importExportView'])->name('ExportImport.Livreurs');
 Route::get('export', [ExportImportController::class, 'export'])->name('export');
 Route::get('import', [ExportImportController::class, 'import'])->name('import');
 

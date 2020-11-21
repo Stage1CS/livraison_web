@@ -16,10 +16,10 @@
 <div class="container">
     <div class="card bg-light mt-3">
         <div class="card-header">
-            Import Export Excel to / from database 
+            Import Export Excel to / from database (table livreurs)
         </div>
         <div class="card-body">
-            <form action="{{ route('import') }}" method="get" enctype="multipart/form-data">
+            <form action="{{ route('import') }}" method="GET" enctype="multipart/form-data">
                 @csrf
                 <input type="file" name="file" class="form-control">
                 <br>
